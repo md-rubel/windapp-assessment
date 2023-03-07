@@ -12,7 +12,7 @@ class LoginVC: BaseViewController {
     
     let sendFundLabel = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = Theme.Font.boldItalic.withSize(24.dynamic)
+        $0.font = Theme.Font.bold.withSize(24.dynamic)
         $0.textColor = Theme.Color.label
         $0.text = LoginResource.sendFund.string
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)

@@ -20,6 +20,14 @@
 		25AAC26429B7CA8B0018DAB5 /* LoginResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC26329B7CA8B0018DAB5 /* LoginResource.swift */; };
 		25AAC26629B7CEB20018DAB5 /* ViewControllerBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC26529B7CEB20018DAB5 /* ViewControllerBased.swift */; };
 		25AAC27B29B7DD720018DAB5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC27A29B7DD720018DAB5 /* OTPTextField.swift */; };
+		25AAC27C29B7EB440018DAB5 /* CircularStd-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27129B7D6900018DAB5 /* CircularStd-Black.ttf */; };
+		25AAC27D29B7EB440018DAB5 /* CircularStd-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27329B7D6900018DAB5 /* CircularStd-BlackItalic.ttf */; };
+		25AAC27E29B7EB440018DAB5 /* CircularStd-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27429B7D6900018DAB5 /* CircularStd-Bold.ttf */; };
+		25AAC27F29B7EB440018DAB5 /* CircularStd-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27529B7D6900018DAB5 /* CircularStd-BoldItalic.ttf */; };
+		25AAC28029B7EB440018DAB5 /* CircularStd-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27829B7D6910018DAB5 /* CircularStd-Book.ttf */; };
+		25AAC28129B7EB440018DAB5 /* CircularStd-BookItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27729B7D6900018DAB5 /* CircularStd-BookItalic.ttf */; };
+		25AAC28229B7EB440018DAB5 /* CircularStd-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27229B7D6900018DAB5 /* CircularStd-Medium.ttf */; };
+		25AAC28329B7EB440018DAB5 /* CircularStd-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC27629B7D6900018DAB5 /* CircularStd-MediumItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -257,6 +265,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AAC27C29B7EB440018DAB5 /* CircularStd-Black.ttf in Resources */,
+				25AAC27D29B7EB440018DAB5 /* CircularStd-BlackItalic.ttf in Resources */,
+				25AAC27E29B7EB440018DAB5 /* CircularStd-Bold.ttf in Resources */,
+				25AAC27F29B7EB440018DAB5 /* CircularStd-BoldItalic.ttf in Resources */,
+				25AAC28029B7EB440018DAB5 /* CircularStd-Book.ttf in Resources */,
+				25AAC28129B7EB440018DAB5 /* CircularStd-BookItalic.ttf in Resources */,
+				25AAC28229B7EB440018DAB5 /* CircularStd-Medium.ttf in Resources */,
+				25AAC28329B7EB440018DAB5 /* CircularStd-MediumItalic.ttf in Resources */,
 				25AAC23F29B7B1210018DAB5 /* LaunchScreen.storyboard in Resources */,
 				25AAC23C29B7B1210018DAB5 /* Assets.xcassets in Resources */,
 			);
