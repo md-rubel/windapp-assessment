@@ -61,8 +61,22 @@ class LoginVC: BaseViewController {
         $0.text = LoginResource.pinTitle.string
     }
     
-    let pinTextField = with(OTPTextField()) {
+    lazy var pinTextField = with(OTPTextField()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.configure()
+        $0.otpDelegate = self
+    }
+    
+    lazy var continueButton = with(UIButton()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle(LoginResource.continueButton.string, for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.titleLabel?.font = Theme.Font.bold.withSize(18.dynamic)
+        $0.backgroundColor = Theme.Color.secondary
+        $0.isUserInteractionEnabled = false
+        $0.layer.cornerRadius = 8.dynamic
+        $0.clipsToBounds = true
+        $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -81,9 +95,7 @@ class LoginVC: BaseViewController {
         view.addSubview(usernameTextField)
         view.addSubview(pinTitleLabel)
         view.addSubview(pinTextField)
-        
-        pinTextField.configure()
-        pinTextField.otpDelegate = self
+        view.addSubview(continueButton)
     }
     
     override func setupLayout() {
@@ -118,6 +130,14 @@ class LoginVC: BaseViewController {
         pinTextField.horizontalAnchors /==/ view.horizontalAnchors + margin
         pinTextField.heightAnchor /==/ 48.dynamic
         pinTextField.updateForBottomOnlyBorder()
+        
+        continueButton.topAnchor /==/ pinTextField.bottomAnchor + margin
+        continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin
+        continueButton.heightAnchor /==/ 56.dynamic
+    }
+    
+    @objc private func continueButtonDidTap() {
+        print(#function + " \(pinTextField.text)")
     }
 }
 
@@ -125,10 +145,13 @@ extension LoginVC: OTPTextFieldDelegate {
     
     func enableNextButton() {
         pinTextField.resignFirstResponder()
+        continueButton.backgroundColor = Theme.Color.primary
+        continueButton.isUserInteractionEnabled = true
     }
     
     func disableNextButton() {
-        
+        continueButton.backgroundColor = Theme.Color.secondary
+        continueButton.isUserInteractionEnabled = false
     }
     
     func becomingFirstResponder() {

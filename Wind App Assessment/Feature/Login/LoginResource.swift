@@ -17,6 +17,7 @@ enum LoginResource: String {
     case sendFund = "Send Fund"
     case usernameTitle = "@username or wallet address"
     case pinTitle = "Enter your PIN"
+    case continueButton = "Continue"
     
     static var scanImageName: String {
         return "scan"
