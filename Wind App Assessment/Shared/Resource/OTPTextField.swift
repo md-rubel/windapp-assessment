@@ -56,6 +56,20 @@ class OTPTextField: UITextField {
         ])
     }
     
+    func updateForBottomOnlyBorder() {
+        digitLabels.forEach {
+            $0.layer.cornerRadius = 0
+            $0.layer.borderWidth = 0
+            $0.clipsToBounds = false
+            
+            let layer = CALayer()
+            layer.frame = CGRect(x: 0, y: $0.frame.height - 3, width: $0.frame.width, height: 3)
+            layer.backgroundColor = UIColor.black.cgColor
+            layer.cornerRadius = 2
+            $0.layer.addSublayer(layer)
+        }
+    }
+    
     func clearText(force: Bool = false) {
         
         if isWarningShowing || force {
@@ -105,7 +119,7 @@ class OTPTextField: UITextField {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textAlignment = .center
-            label.font = .boldSystemFont(ofSize: 24)
+            label.font = .boldSystemFont(ofSize: 36)
             label.isUserInteractionEnabled = true
             label.text = defaultCharacter
             label.backgroundColor = .clear
@@ -131,7 +145,7 @@ class OTPTextField: UITextField {
             let currentLabel = digitLabels[i]
             
             if i < text.count {
-                let index = text.index(text.startIndex, offsetBy: i)
+                //let index = text.index(text.startIndex, offsetBy: i)
                 currentLabel.text = "*" // String(text[index])
             } else {
                 currentLabel.text = defaultCharacter

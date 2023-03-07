@@ -117,6 +117,7 @@ class LoginVC: BaseViewController {
         pinTextField.topAnchor /==/ pinTitleLabel.bottomAnchor + 8.dynamic
         pinTextField.horizontalAnchors /==/ view.horizontalAnchors + margin
         pinTextField.heightAnchor /==/ 48.dynamic
+        pinTextField.updateForBottomOnlyBorder()
     }
 }
 

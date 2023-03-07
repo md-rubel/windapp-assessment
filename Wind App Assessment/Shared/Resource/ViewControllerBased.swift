@@ -18,11 +18,14 @@ class BaseViewController: UIViewController, ViewControllerBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
-        setupLayout()
         setupViewModel()
         setupReactive()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupLayout()
     }
     
     func setupView() { }
