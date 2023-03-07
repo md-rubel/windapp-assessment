@@ -19,6 +19,7 @@
 		25AAC26229B7C7D10018DAB5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC26129B7C7D10018DAB5 /* UIColor+Extension.swift */; };
 		25AAC26429B7CA8B0018DAB5 /* LoginResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC26329B7CA8B0018DAB5 /* LoginResource.swift */; };
 		25AAC26629B7CEB20018DAB5 /* ViewControllerBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC26529B7CEB20018DAB5 /* ViewControllerBased.swift */; };
+		25AAC27B29B7DD720018DAB5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC27A29B7DD720018DAB5 /* OTPTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		25AAC27629B7D6900018DAB5 /* CircularStd-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-MediumItalic.ttf"; sourceTree = "<group>"; };
 		25AAC27729B7D6900018DAB5 /* CircularStd-BookItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BookItalic.ttf"; sourceTree = "<group>"; };
 		25AAC27829B7D6910018DAB5 /* CircularStd-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Book.ttf"; sourceTree = "<group>"; };
+		25AAC27A29B7DD720018DAB5 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.release.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wind_App_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 				25AAC27929B7D69B0018DAB5 /* Fonts */,
 				25AAC25E29B7C7030018DAB5 /* Extension */,
 				25AAC25B29B7C38C0018DAB5 /* Theme */,
-				25AAC25A29B7C1CD0018DAB5 /* ThirdParty */,
+				25AAC25A29B7C1CD0018DAB5 /* Resource */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -135,14 +137,15 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		25AAC25A29B7C1CD0018DAB5 /* ThirdParty */ = {
+		25AAC25A29B7C1CD0018DAB5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				25AAC24D29B7BC8B0018DAB5 /* PropertyWrapper.swift */,
 				25AAC24F29B7BE550018DAB5 /* Observable.swift */,
 				25AAC26529B7CEB20018DAB5 /* ViewControllerBased.swift */,
+				25AAC27A29B7DD720018DAB5 /* OTPTextField.swift */,
 			);
-			path = ThirdParty;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		25AAC25B29B7C38C0018DAB5 /* Theme */ = {
@@ -317,6 +320,7 @@
 				25AAC24E29B7BC8B0018DAB5 /* PropertyWrapper.swift in Sources */,
 				25AAC26629B7CEB20018DAB5 /* ViewControllerBased.swift in Sources */,
 				25AAC26429B7CA8B0018DAB5 /* LoginResource.swift in Sources */,
+				25AAC27B29B7DD720018DAB5 /* OTPTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

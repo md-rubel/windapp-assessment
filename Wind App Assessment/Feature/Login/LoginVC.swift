@@ -39,6 +39,7 @@ class LoginVC: BaseViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.borderStyle = .none
         $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
         $0.font = Theme.Font.medium.withSize(18.dynamic)
         $0.textColor = Theme.Color.label
         
@@ -60,6 +61,15 @@ class LoginVC: BaseViewController {
         $0.text = LoginResource.pinTitle.string
     }
     
+    let pinTextField = with(OTPTextField()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        view.endEditing(true)
+    }
+    
     override func setupView() {
         super.setupView()
         
@@ -70,6 +80,10 @@ class LoginVC: BaseViewController {
         view.addSubview(usernameTitleLabel)
         view.addSubview(usernameTextField)
         view.addSubview(pinTitleLabel)
+        view.addSubview(pinTextField)
+        
+        pinTextField.configure()
+        pinTextField.otpDelegate = self
     }
     
     override func setupLayout() {
@@ -99,5 +113,24 @@ class LoginVC: BaseViewController {
         
         pinTitleLabel.topAnchor /==/ usernameTextField.bottomAnchor + margin
         pinTitleLabel.horizontalAnchors /==/ view.horizontalAnchors + margin
+        
+        pinTextField.topAnchor /==/ pinTitleLabel.bottomAnchor + 8.dynamic
+        pinTextField.horizontalAnchors /==/ view.horizontalAnchors + margin
+        pinTextField.heightAnchor /==/ 48.dynamic
+    }
+}
+
+extension LoginVC: OTPTextFieldDelegate {
+    
+    func enableNextButton() {
+        pinTextField.resignFirstResponder()
+    }
+    
+    func disableNextButton() {
+        
+    }
+    
+    func becomingFirstResponder() {
+        pinTextField.clearText()
     }
 }
