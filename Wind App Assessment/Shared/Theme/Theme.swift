@@ -42,7 +42,7 @@ enum CircularStdFont: String {
         return getSafeFont(named: self.rawValue, size: size)
     }
     
-    private func getSafeFont(named: String,size: CGFloat) -> UIFont {
+    private func getSafeFont(named: String, size: CGFloat) -> UIFont {
         if let font = UIFont(name: named, size: size) {
             return font
         }
