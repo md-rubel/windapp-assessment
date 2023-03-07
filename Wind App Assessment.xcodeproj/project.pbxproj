@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F68665B0026A340796532B /* Pods_Wind_App_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */; };
 		25AAC23329B7B11F0018DAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC23229B7B11F0018DAB5 /* AppDelegate.swift */; };
 		25AAC23C29B7B1210018DAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC23B29B7B1210018DAB5 /* Assets.xcassets */; };
 		25AAC23F29B7B1210018DAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AAC23D29B7B1210018DAB5 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,9 @@
 		25AAC23E29B7B1210018DAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25AAC24029B7B1210018DAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AAC24B29B7B49E0018DAB5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.release.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.release.xcconfig"; sourceTree = "<group>"; };
+		C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wind_App_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F68665B0026A340796532B /* Pods_Wind_App_Assessment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				25AAC23129B7B11F0018DAB5 /* Wind App Assessment */,
 				25AAC23029B7B11F0018DAB5 /* Products */,
+				90370EB34754E7C8C0996539 /* Pods */,
+				7A8C432E18287EBE8F020B27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +108,23 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		7A8C432E18287EBE8F020B27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90370EB34754E7C8C0996539 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */,
+				93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25AAC24329B7B1210018DAB5 /* Build configuration list for PBXNativeTarget "Wind App Assessment" */;
 			buildPhases = (
+				BD58F79B12C63808FEB25A87 /* [CP] Check Pods Manifest.lock */,
 				25AAC22B29B7B11F0018DAB5 /* Sources */,
 				25AAC22C29B7B11F0018DAB5 /* Frameworks */,
 				25AAC22D29B7B11F0018DAB5 /* Resources */,
+				6A649B995140360064B82025 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +191,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A649B995140360064B82025 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD58F79B12C63808FEB25A87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wind App Assessment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25AAC22B29B7B11F0018DAB5 /* Sources */ = {
@@ -240,6 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,6 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -304,6 +374,7 @@
 		};
 		25AAC24429B7B1210018DAB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +383,7 @@
 				DEVELOPMENT_TEAM = 6256BT5YL5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wind App Assessment/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = wind.app;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -337,6 +409,7 @@
 		};
 		25AAC24529B7B1210018DAB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -345,6 +418,7 @@
 				DEVELOPMENT_TEAM = 6256BT5YL5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wind App Assessment/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = wind.app;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

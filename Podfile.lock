@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Anchorage (4.5.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Anchorage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Anchorage
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Anchorage: 1961bc81c84aeed54ad7ffc697c50cd9de748ba6
+
+PODFILE CHECKSUM: da6b2f7ed647496f5cbf060c2a3fbd7700dcb198
+
+COCOAPODS: 1.11.3
