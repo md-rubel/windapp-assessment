@@ -16,6 +16,7 @@ enum LoginResource: String {
     
     case sendFund = "Send Fund"
     case usernameTitle = "@username or wallet address"
+    case usernamePlaceholder = "john_doe"
     case pinTitle = "Enter your PIN"
     case continueButton = "Continue"
     

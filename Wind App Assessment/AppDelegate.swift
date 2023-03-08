@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginVC = LoginVC()
         let navController = UINavigationController(rootViewController: loginVC)
         navController.view.backgroundColor = .white
+        navController.setNavigationBarHidden(true, animated: false)
         navController.modalPresentationStyle = .fullScreen
         
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -18,14 +18,16 @@ class LoginVC: BaseViewController {
         $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
     }
     
-    let scanButton = with(UIButton()) {
+    lazy var scanButton = with(UIButton()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setImage(UIImage(named: LoginResource.scanImageName), for: .normal)
+        $0.addTarget(self, action: #selector(scanButtonDidTap), for: .touchUpInside)
     }
     
-    let closeButton = with(UIButton()) {
+    lazy var closeButton = with(UIButton()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setImage(UIImage(named: LoginResource.closeImageName), for: .normal)
+        $0.addTarget(self, action: #selector(closeButtonDidTap), for: .touchUpInside)
     }
     
     let usernameTitleLabel = with(UILabel()) {
@@ -42,6 +44,7 @@ class LoginVC: BaseViewController {
         $0.spellCheckingType = .no
         $0.font = Theme.Font.medium.withSize(18.dynamic)
         $0.textColor = Theme.Color.label
+        $0.placeholder = LoginResource.usernamePlaceholder.string
         
         let prefix = with(UILabel()) {
             $0.text = "@ "
@@ -77,6 +80,11 @@ class LoginVC: BaseViewController {
         $0.layer.cornerRadius = 8.dynamic
         $0.clipsToBounds = true
         $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        usernameTextField.becomeFirstResponder()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -131,13 +139,29 @@ class LoginVC: BaseViewController {
         pinTextField.heightAnchor /==/ 48.dynamic
         pinTextField.updateForBottomOnlyBorder()
         
-        continueButton.topAnchor /==/ pinTextField.bottomAnchor + margin
+        continueButton.topAnchor /==/ pinTextField.bottomAnchor + margin * 3
         continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin
         continueButton.heightAnchor /==/ 56.dynamic
     }
     
+    deinit {
+        print("==> \(#function) called on: \(Self.self)")
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func scanButtonDidTap() {
+        print(#function)
+    }
+    
+    @objc private func closeButtonDidTap() {
+        print(#function)
+    }
+    
     @objc private func continueButtonDidTap() {
-        print(#function + " \(pinTextField.text)")
+        print(#function + " \(pinTextField.text ?? "")")
+        
+        
     }
 }
 
