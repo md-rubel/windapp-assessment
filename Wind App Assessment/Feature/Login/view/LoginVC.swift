@@ -84,6 +84,13 @@ class LoginVC: BaseViewController {
         $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
     }
     
+    let spinner = with(UIActivityIndicatorView()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.style = .whiteLarge
+        $0.backgroundColor = .black.withAlphaComponent(0.5)
+        $0.hidesWhenStopped = true
+    }
+    
     var viewModel: LoginViewModel?
     
     override func viewDidLoad() {
@@ -113,6 +120,7 @@ class LoginVC: BaseViewController {
         view.addSubview(pinTitleLabel)
         view.addSubview(pinTextField)
         view.addSubview(continueButton)
+        view.addSubview(spinner)
     }
     
     override func setupLayout() {
@@ -151,12 +159,15 @@ class LoginVC: BaseViewController {
         continueButton.topAnchor /==/ pinTextField.bottomAnchor + margin * 3
         continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin
         continueButton.heightAnchor /==/ 56.dynamic
+        
+        spinner.edgeAnchors == view.edgeAnchors
     }
     
     override func setupReactive() {
         super.setupReactive()
         
         viewModel?.userData.bind { [weak self] userData in
+            self?.spinner.stopAnimating()
             
             guard let user = userData else {
                 self?.showLoginFailedError()
@@ -205,7 +216,9 @@ class LoginVC: BaseViewController {
             return
         }
         
+        spinner.startAnimating()
         viewModel?.login(user: username, pin: pin)
+        
         usernameTextField.text = nil
         pinTextField.clearText(force: true)
     }
