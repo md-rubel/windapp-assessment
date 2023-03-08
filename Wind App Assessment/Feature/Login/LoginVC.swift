@@ -37,14 +37,16 @@ class LoginVC: BaseViewController {
         $0.text = LoginResource.usernameTitle.string
     }
     
-    let usernameTextField = with(UITextField()) {
+    lazy var usernameTextField = with(UITextField()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.borderStyle = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
+        $0.autocapitalizationType = .none
         $0.font = Theme.Font.medium.withSize(18.dynamic)
         $0.textColor = Theme.Color.label
         $0.placeholder = LoginResource.usernamePlaceholder.string
+        $0.delegate = self
         
         let prefix = with(UILabel()) {
             $0.text = "@ "
@@ -163,6 +165,9 @@ class LoginVC: BaseViewController {
         
         let transferFundVC = TransferFundVC(viewModel: TransferFundViewModel())
         navigationController?.pushViewController(transferFundVC, animated: true)
+        
+        usernameTextField.text = nil
+        pinTextField.clearText(force: true)
     }
 }
 
@@ -181,5 +186,26 @@ extension LoginVC: OTPTextFieldDelegate {
     
     func becomingFirstResponder() {
         pinTextField.clearText()
+    }
+}
+
+extension LoginVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string == " " {
+            return false
+        }
+        
+        if let text = textField.text, text.isEmpty, !string.containsOnlyLetters {
+            return false
+        }
+        
+        if !string.isAlphanumeric && string == "_" && string == "." {
+            return false
+        }
+        
+        textField.text = (textField.text! as NSString).replacingCharacters(in: range, with: string.lowercased())
+        return false
     }
 }
