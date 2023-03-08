@@ -9,6 +9,12 @@ import UIKit
 
 class TransferFundViewModel {
     
+    var lowBalanceObservar: Observable<Bool> = Observable(false)
+    
+    var availableBalance: Double {
+        return 35.345
+    }
+    
     var recipientImage: UIImage? {
         return UIImage(named: "")
     }

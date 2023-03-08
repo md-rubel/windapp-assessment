@@ -148,8 +148,15 @@ class TransferFundVC: BaseViewController {
     
     override func setupViewModel() {
         super.setupViewModel()
+        hideInsufficientBalanceWarning = true
+    }
+    
+    override func setupReactive() {
+        super.setupReactive()
         
-        hideInsufficientBalanceWarning = false
+        viewModel.lowBalanceObservar.bind { [weak self] isLowBalance in
+            self?.hideInsufficientBalanceWarning = !isLowBalance
+        }
     }
     
     @objc private func backButtonDidTap() {

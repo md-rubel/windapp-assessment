@@ -10,14 +10,16 @@ import Anchorage
 
 class TransferFundAmountInputView: UIView {
     
-    let amountTextField = with(UITextField()) {
+    lazy var amountTextField = with(UITextField()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.borderStyle = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
-        $0.keyboardType = .numberPad
+        $0.keyboardType = .decimalPad
         $0.font = Theme.Font.medium.withSize(36.dynamic)
         $0.textColor = Theme.Color.label
+        $0.delegate = self
+        $0.addTarget(self, action: #selector(amountTextChanged), for: .editingChanged)
         
         let prefix = with(UILabel()) {
             $0.text = "$"
@@ -30,7 +32,7 @@ class TransferFundAmountInputView: UIView {
         $0.leftViewMode = .always
     }
     
-    let maxButton = with(UIButton()) {
+    lazy var maxButton = with(UIButton()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle(TransferFundResource.max.string, for: .normal)
         $0.setTitleColor(Theme.Color.label, for: .normal)
@@ -38,6 +40,7 @@ class TransferFundAmountInputView: UIView {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 6.dynamic
         $0.clipsToBounds = true
+        $0.addTarget(self, action: #selector(maxButtonDidTap), for: .touchUpInside)
     }
     
     let balanceLabel = with(UILabel()) {
@@ -118,6 +121,46 @@ class TransferFundAmountInputView: UIView {
     }
     
     private func setupViewModel() {
+        balanceLabel.text = "Balance USDC \(viewModel.availableBalance)"
+    }
+    
+    private func checkIfInsufficientBalance() {
+        guard let text = amountTextField.text, !text.isEmpty else {
+            return
+        }
         
+        guard let amount = Double(text) else {
+            return
+        }
+        
+        viewModel.lowBalanceObservar.value = amount > viewModel.availableBalance
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func maxButtonDidTap() {
+        print(#function)
+        amountTextField.text = "\(viewModel.availableBalance)"
+    }
+    
+    @objc private func amountTextChanged(_ textField: UITextField) {
+        print(#function)
+        checkIfInsufficientBalance()
+    }
+}
+
+extension TransferFundAmountInputView: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let text = textField.text, text.isEmpty, string == "." {
+            return false
+        }
+        
+        if let text = textField.text, string == ".", text.contains(".") {
+            return false
+        }
+        
+        return true
     }
 }
