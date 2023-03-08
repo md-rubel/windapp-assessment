@@ -20,6 +20,7 @@ class TransferFundRecipientView: UIView {
     let recipientAddressLabel = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = Theme.Font.medium.withSize(16.dynamic)
+        $0.lineBreakMode = .byTruncatingMiddle
     }
     
     var viewModel: TransferFundViewModel
@@ -64,7 +65,18 @@ class TransferFundRecipientView: UIView {
     }
     
     private func setupViewModel() {
-        imageView.image = viewModel.recipientImage
         recipientAddressLabel.attributedText = viewModel.recipientAddress
+        
+        DispatchQueue.global(qos: .userInteractive).async { [self] in
+            
+            if let imageUrl = viewModel.recipientImageUrl,
+               let url = URL(string: imageUrl),
+               let imageData = try? Data(contentsOf: url) {
+                
+                DispatchQueue.main.async { [self] in
+                    imageView.image = UIImage(data: imageData)
+                }
+            }
+        }
     }
 }

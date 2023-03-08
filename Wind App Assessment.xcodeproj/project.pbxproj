@@ -40,6 +40,7 @@
 		25AAC29729B91F2E0018DAB5 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC29629B91F2E0018DAB5 /* LoginApiService.swift */; };
 		25AAC29929B91F9D0018DAB5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC29829B91F9D0018DAB5 /* LoginRouter.swift */; };
 		25AAC29B29B922EC0018DAB5 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC29A29B922EC0018DAB5 /* LoginModel.swift */; };
+		25AAC2A429B926980018DAB5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC2A329B926980018DAB5 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		25AAC29629B91F2E0018DAB5 /* LoginApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
 		25AAC29829B91F9D0018DAB5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		25AAC29A29B922EC0018DAB5 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		25AAC2A329B926980018DAB5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.release.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wind_App_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				25AAC29E29B9233D0018DAB5 /* model */,
 				25AAC29C29B923180018DAB5 /* view */,
+				25AAC2A529B9269B0018DAB5 /* viewModel */,
 				25AAC29D29B923330018DAB5 /* service */,
 				25AAC29F29B923490018DAB5 /* utils */,
 			);
@@ -145,11 +148,9 @@
 		25AAC24829B7B3870018DAB5 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
-				25AAC28429B7F6620018DAB5 /* TransferFundVC.swift */,
-				25AAC28629B85B290018DAB5 /* TransferFundResource.swift */,
-				25AAC28829B869D40018DAB5 /* TransferFundRecipientView.swift */,
-				25AAC28C29B889350018DAB5 /* TransferFundAmountInputView.swift */,
-				25AAC28E29B89AA00018DAB5 /* TransferFundViewModel.swift */,
+				25AAC2A029B926620018DAB5 /* view */,
+				25AAC2A229B926720018DAB5 /* viewModel */,
+				25AAC2A129B9266A0018DAB5 /* utils */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -254,6 +255,40 @@
 				25AAC26329B7CA8B0018DAB5 /* LoginResource.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		25AAC2A029B926620018DAB5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				25AAC28429B7F6620018DAB5 /* TransferFundVC.swift */,
+				25AAC28829B869D40018DAB5 /* TransferFundRecipientView.swift */,
+				25AAC28C29B889350018DAB5 /* TransferFundAmountInputView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		25AAC2A129B9266A0018DAB5 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				25AAC28629B85B290018DAB5 /* TransferFundResource.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		25AAC2A229B926720018DAB5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				25AAC28E29B89AA00018DAB5 /* TransferFundViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		25AAC2A529B9269B0018DAB5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				25AAC2A329B926980018DAB5 /* LoginViewModel.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		7A8C432E18287EBE8F020B27 /* Frameworks */ = {
@@ -395,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AAC2A429B926980018DAB5 /* LoginViewModel.swift in Sources */,
 				25AAC26229B7C7D10018DAB5 /* UIColor+Extension.swift in Sources */,
 				25AAC26029B7C71F0018DAB5 /* Number+Extension.swift in Sources */,
 				25AAC25029B7BE550018DAB5 /* Observable.swift in Sources */,

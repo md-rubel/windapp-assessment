@@ -19,6 +19,8 @@ enum LoginResource: String {
     case usernamePlaceholder = "john_doe"
     case pinTitle = "Enter your PIN"
     case continueButton = "Continue"
+    case loginFailedTitle = "Login Failed"
+    case loginFailedMessage = "Please try again with correct username and pin."
     
     static var scanImageName: String {
         return "scan"

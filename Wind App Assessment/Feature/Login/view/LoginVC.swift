@@ -84,6 +84,13 @@ class LoginVC: BaseViewController {
         $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
     }
     
+    var viewModel: LoginViewModel?
+    
+    override func viewDidLoad() {
+        viewModel = LoginViewModel()
+        super.viewDidLoad()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         usernameTextField.becomeFirstResponder()
@@ -146,8 +153,38 @@ class LoginVC: BaseViewController {
         continueButton.heightAnchor /==/ 56.dynamic
     }
     
+    override func setupReactive() {
+        super.setupReactive()
+        
+        viewModel?.userData.bind { [weak self] userData in
+            
+            guard let user = userData else {
+                self?.showLoginFailedError()
+                return
+            }
+            
+            let transferFundViewModel = TransferFundViewModel(username: user.userInfo?.userName,
+                                                              wallet: user.userInfo?.walletAddress,
+                                                              balance: user.accountInfo?.balance,
+                                                              image: user.userInfo?.profileImage)
+            
+            let transferFundVC = TransferFundVC(viewModel: transferFundViewModel)
+            self?.navigationController?.pushViewController(transferFundVC, animated: true)
+        }
+    }
+    
     deinit {
         print("==> \(#function) called on: \(Self.self)")
+    }
+    
+    private func showLoginFailedError() {
+        
+        let alert = UIAlertController(title: LoginResource.loginFailedTitle.string,
+                                      message: LoginResource.loginFailedMessage.string,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+        present(alert, animated: true)
     }
     
     // MARK: - Actions
@@ -161,11 +198,14 @@ class LoginVC: BaseViewController {
     }
     
     @objc private func continueButtonDidTap() {
-        print(#function + " \(pinTextField.text ?? "")")
+        print(#function)
         
-        let transferFundVC = TransferFundVC(viewModel: TransferFundViewModel())
-        navigationController?.pushViewController(transferFundVC, animated: true)
+        guard let username = usernameTextField.text,
+              let pin = pinTextField.text else {
+            return
+        }
         
+        viewModel?.login(user: username, pin: pin)
         usernameTextField.text = nil
         pinTextField.clearText(force: true)
     }
