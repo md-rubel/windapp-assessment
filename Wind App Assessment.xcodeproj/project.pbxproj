@@ -31,6 +31,8 @@
 		25AAC28529B7F6630018DAB5 /* TransferFundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC28429B7F6620018DAB5 /* TransferFundVC.swift */; };
 		25AAC28729B85B290018DAB5 /* TransferFundResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC28629B85B290018DAB5 /* TransferFundResource.swift */; };
 		25AAC28929B869D40018DAB5 /* TransferFundRecipientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC28829B869D40018DAB5 /* TransferFundRecipientView.swift */; };
+		25AAC28B29B883A70018DAB5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC28A29B883A70018DAB5 /* UIView+Extension.swift */; };
+		25AAC28D29B889350018DAB5 /* TransferFundAmountInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC28C29B889350018DAB5 /* TransferFundAmountInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		25AAC28429B7F6620018DAB5 /* TransferFundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundVC.swift; sourceTree = "<group>"; };
 		25AAC28629B85B290018DAB5 /* TransferFundResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundResource.swift; sourceTree = "<group>"; };
 		25AAC28829B869D40018DAB5 /* TransferFundRecipientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundRecipientView.swift; sourceTree = "<group>"; };
+		25AAC28A29B883A70018DAB5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		25AAC28C29B889350018DAB5 /* TransferFundAmountInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundAmountInputView.swift; sourceTree = "<group>"; };
 		93CC7013F34DA88D391FCE6B /* Pods-Wind App Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.release.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		C3F7DA7239ECA368A9230490 /* Pods_Wind_App_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wind_App_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC76E78CC14A7F34A59C034 /* Pods-Wind App Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wind App Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Wind App Assessment/Pods-Wind App Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				25AAC28429B7F6620018DAB5 /* TransferFundVC.swift */,
 				25AAC28629B85B290018DAB5 /* TransferFundResource.swift */,
 				25AAC28829B869D40018DAB5 /* TransferFundRecipientView.swift */,
+				25AAC28C29B889350018DAB5 /* TransferFundAmountInputView.swift */,
 			);
 			path = Transfer;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			children = (
 				25AAC25F29B7C71F0018DAB5 /* Number+Extension.swift */,
 				25AAC26129B7C7D10018DAB5 /* UIColor+Extension.swift */,
+				25AAC28A29B883A70018DAB5 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -341,9 +347,11 @@
 				25AAC25029B7BE550018DAB5 /* Observable.swift in Sources */,
 				25AAC28929B869D40018DAB5 /* TransferFundRecipientView.swift in Sources */,
 				25AAC28729B85B290018DAB5 /* TransferFundResource.swift in Sources */,
+				25AAC28D29B889350018DAB5 /* TransferFundAmountInputView.swift in Sources */,
 				25AAC24C29B7B49E0018DAB5 /* LoginVC.swift in Sources */,
 				25AAC25D29B7C3990018DAB5 /* Theme.swift in Sources */,
 				25AAC23329B7B11F0018DAB5 /* AppDelegate.swift in Sources */,
+				25AAC28B29B883A70018DAB5 /* UIView+Extension.swift in Sources */,
 				25AAC24E29B7BC8B0018DAB5 /* PropertyWrapper.swift in Sources */,
 				25AAC28529B7F6630018DAB5 /* TransferFundVC.swift in Sources */,
 				25AAC26629B7CEB20018DAB5 /* ViewControllerBased.swift in Sources */,

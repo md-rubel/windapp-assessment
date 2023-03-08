@@ -11,11 +11,11 @@ import Anchorage
 class TransferFundViewModel {
     
     var recipientImage: UIImage? {
-        return nil
+        return UIImage(named: "")
     }
     
     var recipientAddress: NSAttributedString? {
-        return nil
+        return NSMutableAttributedString(string: "Hello")
     }
 }
 
@@ -57,6 +57,10 @@ class TransferFundVC: BaseViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    lazy var amountInputView = with(TransferFundAmountInputView(viewModel: viewModel)) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     lazy var continueButton = with(UIButton()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle(TransferFundResource.continueButton.string, for: .normal)
@@ -69,6 +73,15 @@ class TransferFundVC: BaseViewController {
         $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    deinit {
+        print("==> \(#function) called on: \(Self.self)")
+    }
+    
     override func setupView() {
         super.setupView()
         
@@ -77,7 +90,7 @@ class TransferFundVC: BaseViewController {
         view.addSubview(sendFundLabel)
         view.addSubview(recipientTitleLabel)
         view.addSubview(recipientView)
-        
+        view.addSubview(amountInputView)
         view.addSubview(continueButton)
     }
     
@@ -90,13 +103,23 @@ class TransferFundVC: BaseViewController {
         backButton.leftAnchor /==/ view.leftAnchor + margin
         backButton.topAnchor /==/ view.safeAreaLayoutGuide.topAnchor + margin
         
-        sendFundLabel.topAnchor /==/ view.topAnchor + margin
+        sendFundLabel.topAnchor /==/ view.safeAreaLayoutGuide.topAnchor + margin
         sendFundLabel.centerXAnchor /==/ view.centerXAnchor
         
-    }
-    
-    deinit {
-        print("==> \(#function) called on: \(Self.self)")
+        recipientTitleLabel.topAnchor /==/ sendFundLabel.bottomAnchor + margin
+        recipientTitleLabel.horizontalAnchors /==/ view.horizontalAnchors + margin
+        
+        recipientView.topAnchor /==/ recipientTitleLabel.bottomAnchor + 8.dynamic
+        recipientView.horizontalAnchors /==/ view.horizontalAnchors + margin
+        recipientView.dropShadow(opacity: 0.1, offSet: CGSize(width: 2, height: 2), radius: 4)
+        
+        amountInputView.topAnchor /==/ recipientView.bottomAnchor + 16.dynamic
+        amountInputView.horizontalAnchors /==/ view.horizontalAnchors + margin
+        amountInputView.gradientBorder(colors: [.red, .blue], isVertical: false)
+        
+        continueButton.topAnchor /==/ amountInputView.bottomAnchor + margin * 3
+        continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin
+        continueButton.heightAnchor /==/ 56.dynamic
     }
     
     @objc private func backButtonDidTap() {

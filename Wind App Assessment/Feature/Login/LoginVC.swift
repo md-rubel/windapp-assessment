@@ -161,7 +161,8 @@ class LoginVC: BaseViewController {
     @objc private func continueButtonDidTap() {
         print(#function + " \(pinTextField.text ?? "")")
         
-        
+        let transferFundVC = TransferFundVC(viewModel: TransferFundViewModel())
+        navigationController?.pushViewController(transferFundVC, animated: true)
     }
 }
 

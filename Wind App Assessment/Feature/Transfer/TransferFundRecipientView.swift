@@ -14,6 +14,7 @@ class TransferFundRecipientView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
+        $0.layer.cornerRadius = 18.dynamic
     }
     
     let recipientAddressLabel = with(UILabel()) {
@@ -37,6 +38,10 @@ class TransferFundRecipientView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .white
+        layer.cornerRadius = 8.dynamic
+        clipsToBounds = true
+        
         addSubview(imageView)
         addSubview(recipientAddressLabel)
     }
