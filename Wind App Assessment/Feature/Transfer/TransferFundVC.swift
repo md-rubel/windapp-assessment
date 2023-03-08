@@ -8,17 +8,6 @@
 import UIKit
 import Anchorage
 
-class TransferFundViewModel {
-    
-    var recipientImage: UIImage? {
-        return UIImage(named: "")
-    }
-    
-    var recipientAddress: NSAttributedString? {
-        return NSMutableAttributedString(string: "Hello")
-    }
-}
-
 class TransferFundVC: BaseViewController {
     
     var viewModel: TransferFundViewModel
@@ -75,20 +64,27 @@ class TransferFundVC: BaseViewController {
     
     let insufficientBalanceLabel = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = Theme.Font.regular.withSize(12.dynamic)
-        $0.textColor = Theme.Color.labelSecondary
+        $0.font = Theme.Font.medium.withSize(16.dynamic)
+        $0.textColor = Theme.Color.warning
         $0.numberOfLines = 1
         $0.text = TransferFundResource.insufficientBalance.string
     }
     
     let addFundButton = with(UIButton()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle(TransferFundResource.max.string, for: .normal)
-        $0.setTitleColor(Theme.Color.label, for: .normal)
-        $0.titleLabel?.font = Theme.Font.medium.withSize(16.dynamic)
+        $0.setTitle(TransferFundResource.addFund.string, for: .normal)
+        $0.setTitleColor(Theme.Color.primary, for: .normal)
+        $0.titleLabel?.font = Theme.Font.bold.withSize(14.dynamic)
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 6.dynamic
         $0.clipsToBounds = true
+    }
+    
+    var hideInsufficientBalanceWarning: Bool = true {
+        didSet {
+            insufficientBalanceLabel.isHidden = hideInsufficientBalanceWarning
+            addFundButton.isHidden = hideInsufficientBalanceWarning
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -109,6 +105,8 @@ class TransferFundVC: BaseViewController {
         view.addSubview(recipientTitleLabel)
         view.addSubview(recipientView)
         view.addSubview(amountInputView)
+        view.addSubview(insufficientBalanceLabel)
+        view.addSubview(addFundButton)
         view.addSubview(continueButton)
     }
     
@@ -133,9 +131,25 @@ class TransferFundVC: BaseViewController {
         amountInputView.topAnchor /==/ recipientView.bottomAnchor + 16.dynamic
         amountInputView.horizontalAnchors /==/ view.horizontalAnchors + margin
         
-        continueButton.topAnchor /==/ amountInputView.bottomAnchor + margin * 3
+        addFundButton.heightAnchor /==/ 30.dynamic
+        addFundButton.widthAnchor /==/ 84.dynamic
+        addFundButton.topAnchor /==/ amountInputView.bottomAnchor + margin
+        addFundButton.rightAnchor /==/ view.rightAnchor - margin * 2
+        addFundButton.dropShadow(opacity: 0.11, radius: 3)
+        
+        insufficientBalanceLabel.leftAnchor /==/ view.leftAnchor + margin * 2
+        insufficientBalanceLabel.rightAnchor /==/ addFundButton.leftAnchor - 16.dynamic
+        insufficientBalanceLabel.centerYAnchor /==/ addFundButton.centerYAnchor
+        
+        continueButton.topAnchor /==/ addFundButton.bottomAnchor + margin * 2.5
         continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin
         continueButton.heightAnchor /==/ 56.dynamic
+    }
+    
+    override func setupViewModel() {
+        super.setupViewModel()
+        
+        hideInsufficientBalanceWarning = false
     }
     
     @objc private func backButtonDidTap() {

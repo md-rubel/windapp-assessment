@@ -12,7 +12,7 @@ class Theme {
     struct Color {
         static var primary: UIColor { return UIColor(hex: "#6E50FF") }
         static var secondary: UIColor { return primary.withAlphaComponent(0.5) }
-        
+        static var warning: UIColor { return UIColor(hex: "#E04343") }
         static var label: UIColor { return UIColor.black }
         static var labelSecondary: UIColor { return UIColor(hex: "#75808A") }
     }
