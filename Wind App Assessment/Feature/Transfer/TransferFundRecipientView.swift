@@ -29,12 +29,16 @@ class TransferFundRecipientView: UIView {
         super.init(frame: .zero)
         
         setupView()
-        setupLayout()
         setupViewModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupLayout()
     }
     
     private func setupView() {
@@ -55,6 +59,8 @@ class TransferFundRecipientView: UIView {
         recipientAddressLabel.leftAnchor /==/ imageView.rightAnchor + 12.dynamic
         recipientAddressLabel.rightAnchor /==/ rightAnchor - 12.dynamic
         recipientAddressLabel.centerYAnchor /==/ imageView.centerYAnchor
+        
+        dropShadow(opacity: 0.1, offSet: CGSize(width: 2, height: 2), radius: 4)
     }
     
     private func setupViewModel() {

@@ -17,6 +17,8 @@ enum TransferFundResource: String {
     case sendFund = "Send Fund"
     case recipientTitle = "Recipient"
     case continueButton = "Continue"
+    case max = "Max"
+    case insufficientBalance = "Insufficient balance"
     
     static var backImageName: String {
         return "arrow-left"

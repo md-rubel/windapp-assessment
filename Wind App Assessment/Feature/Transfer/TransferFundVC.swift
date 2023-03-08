@@ -73,6 +73,24 @@ class TransferFundVC: BaseViewController {
         $0.addTarget(self, action: #selector(continueButtonDidTap), for: .touchUpInside)
     }
     
+    let insufficientBalanceLabel = with(UILabel()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = Theme.Font.regular.withSize(12.dynamic)
+        $0.textColor = Theme.Color.labelSecondary
+        $0.numberOfLines = 1
+        $0.text = TransferFundResource.insufficientBalance.string
+    }
+    
+    let addFundButton = with(UIButton()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle(TransferFundResource.max.string, for: .normal)
+        $0.setTitleColor(Theme.Color.label, for: .normal)
+        $0.titleLabel?.font = Theme.Font.medium.withSize(16.dynamic)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 6.dynamic
+        $0.clipsToBounds = true
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         view.endEditing(true)
@@ -111,11 +129,9 @@ class TransferFundVC: BaseViewController {
         
         recipientView.topAnchor /==/ recipientTitleLabel.bottomAnchor + 8.dynamic
         recipientView.horizontalAnchors /==/ view.horizontalAnchors + margin
-        recipientView.dropShadow(opacity: 0.1, offSet: CGSize(width: 2, height: 2), radius: 4)
         
         amountInputView.topAnchor /==/ recipientView.bottomAnchor + 16.dynamic
         amountInputView.horizontalAnchors /==/ view.horizontalAnchors + margin
-        amountInputView.gradientBorder(colors: [.red, .blue], isVertical: false)
         
         continueButton.topAnchor /==/ amountInputView.bottomAnchor + margin * 3
         continueButton.horizontalAnchors /==/ view.horizontalAnchors + margin

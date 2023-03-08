@@ -53,4 +53,29 @@ extension UIView {
         self.layer.addSublayer(gradient)
         gradient.zPosition = 0
     }
+    
+    func gradientBackground(colors: [UIColor], isVertical: Bool) {
+        self.layer.masksToBounds = true
+        
+        //Create gradient layer
+        let gradient = CAGradientLayer()
+        gradient.frame = CGRect(origin: CGPoint.zero, size: self.bounds.size)
+        gradient.colors = colors.map({ (color) -> CGColor in
+            color.cgColor
+        })
+        
+        //Set gradient direction
+        if(isVertical){
+            gradient.startPoint = CGPoint(x: 0.5, y: 0)
+            gradient.endPoint = CGPoint(x: 0.5, y: 1)
+        }
+        else {
+            gradient.startPoint = CGPoint(x: 0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1, y: 0.5)
+        }
+        
+        //Add layer to view
+        self.layer.insertSublayer(gradient, at: 0)
+        gradient.zPosition = 0
+    }
 }
