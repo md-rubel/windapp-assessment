@@ -133,7 +133,20 @@ class TransferFundAmountInputView: UIView {
             return
         }
         
+        updateMaxButtonUI(isMax: amount == viewModel.availableBalance)
         viewModel.lowBalanceObservar.value = amount > viewModel.availableBalance
+    }
+    
+    private func updateMaxButtonUI(isMax: Bool) {
+        
+        if isMax {
+            maxButton.backgroundColor = Theme.Color.primary
+            maxButton.setTitleColor(.white, for: .normal)
+            
+        } else {
+            maxButton.backgroundColor = .white
+            maxButton.setTitleColor(Theme.Color.label, for: .normal)
+        }
     }
     
     // MARK: - Actions
@@ -141,6 +154,7 @@ class TransferFundAmountInputView: UIView {
     @objc private func maxButtonDidTap() {
         print(#function)
         amountTextField.text = "\(viewModel.availableBalance)"
+        updateMaxButtonUI(isMax: true)
     }
     
     @objc private func amountTextChanged(_ textField: UITextField) {
